@@ -34,8 +34,12 @@ ID SERIAL PRIMARY KEY,
 user_name VARCHAR(255),
 password VARCHAR(255));`
 
-#### 6. And for the fun part, to run the application, all you need to do is open your terminal on the root folder of the application and run `npm run start`. 
-- This command does two things:
+#### 6. Make sure the database connection settings (database, password, etc) on `db.ts` match the ones you got.
+
+#### 7. And for the fun part, to run the application, all you need to do is open your terminal on the root folder:
+- Run `npm install` to make sure you have all the needed packages installed and you have a `node_modules`.
+- Run `npm run start`. 
+- This latest command does two things:
 - First, runs a script on the `package.json` that compiles the TypeScript files and creates a `dist/` folder where the JS files will live. 
 - Finally, it runs the `dist/server.js` file.
 
