@@ -48,5 +48,7 @@ password VARCHAR(255));`
 - You should download it and use it as you like.
 - Make sure you register a user first and do a login to grab the Authorization Token.
 - This is important because all the Betslip requests need the Authorization Token set on the Headers.
+
 `-H Authorization:${TOKEN_OBTAINED_FROM_LOGIN}`
+
 - After this, you should be good to go!
