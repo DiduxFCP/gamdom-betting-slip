@@ -36,6 +36,15 @@ const getBetslipByID = async (req: Request, res: Response): Promise<ResponseRetu
     const { bettingSlipId } = req.query;
     const result: BetslipQueryResult = await pool.query(GET_BETSLIP_BY_ID_QUERY, [bettingSlipId]);
 
+    const noBetslipFound = !result.rows.length;
+
+    if (noBetslipFound) {
+      return res.status(200).json({
+        success: true,
+        message: `Betting Slip does not exist with id: ${bettingSlipId}.`
+      });
+    }
+
     const {
       user_id: userId,
       event_id: eventId,
@@ -101,8 +110,8 @@ const updateBetslipAmount = async (req: Request, res: Response): Promise<Respons
     const { bettingSlipId } = req.query;
     const { newAmount } = req.body;
 
-    const betslipResult: BetslipQueryResult = await pool.query(GET_BETSLIP_BY_ID_QUERY, [bettingSlipId]);
-    const noBetslipFound = !betslipResult.rows.length;
+    const result: BetslipQueryResult = await pool.query(GET_BETSLIP_BY_ID_QUERY, [bettingSlipId]);
+    const noBetslipFound = !result.rows.length;
 
     if (noBetslipFound) {
       return res.status(200).json({
