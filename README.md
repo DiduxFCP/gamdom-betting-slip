@@ -1,4 +1,4 @@
-# Gamdon Betting Slip API Service
+# Gamdom Betting Slip API Service
 
 --------------------------------------------
 --------------------------------------------
